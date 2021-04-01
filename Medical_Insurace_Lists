@@ -1,0 +1,39 @@
+# Function to estimate insurance cost:
+def estimate_insurance_cost(name, age, sex, bmi, num_of_children, smoker):
+  estimated_cost = 250*age - 128*sex + 370*bmi + 425*num_of_children + 24000*smoker - 12500
+  print(name + "'s Estimated Insurance Cost: " + str(estimated_cost) + " dollars.")
+  return estimated_cost
+
+# prints the difference between actual and estimate for each individual
+def difference_estimate_actual(estimate, actual):
+  print("Difference between estimated and actual:")
+  insurance_cost_difference = []
+  for temp in range(len(estimate)):
+    insurance_cost_difference = actual[temp][-1] - (estimate[temp][-1])
+    print(actual[temp][0])
+    print(str(insurance_cost_difference) + " Dollars.")
+
+# Estimate Maria's insurance cost
+maria_insurance_cost = estimate_insurance_cost(name = "Maria", age = 31, sex = 0, bmi = 23.1, num_of_children = 1, smoker = 0)
+
+# Estimate Rohan's insurance cost
+rohan_insurance_cost = estimate_insurance_cost(name = 
+"Rohan", age = 25, sex = 1, bmi = 28.5, num_of_children = 3, smoker = 0)
+
+# Estimate Valentina's insurance cost
+valentina_insurance_cost = estimate_insurance_cost(name = "Valentina", age = 53, sex = 0, bmi = 31.4, num_of_children = 0, smoker = 1)
+
+akira_insurance_cost = estimate_insurance_cost(name = "Akira", age = 19, sex = 1, bmi = 27.1, num_of_children = 0, smoker = 0)
+
+name = ["Maria", "Rohan", "Valentina"]
+name.append("Akira")
+list_estimated = [maria_insurance_cost, rohan_insurance_cost, valentina_insurance_cost, akira_insurance_cost]
+insurance_cost = [4150.0, 5320.0, 35210.0] 
+insurance_cost.append(2930.0)
+actual_insurance_data = list(zip(name, insurance_cost))
+estimate_insurance_data = list(zip(name, list_estimated))
+print("Actual insurance cost data: \n" + str(actual_insurance_data))
+print("Estimated insurance cost data: \n" + str(estimate_insurance_data))
+difference_estimate_actual(estimate_insurance_data, actual_insurance_data)
+
+
